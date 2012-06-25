@@ -31,7 +31,7 @@ module Guard
       end
     end
 
-    def run_on_change(paths)
+    def run_on_changes(paths)
       paths.each do |pathname|
         full_pathname = File.expand_path pathname, @@root
 
@@ -46,7 +46,7 @@ module Guard
     end
     def run_all
       paths = Watcher.match_files self, Dir[ File.join('**', '*') ]
-      run_on_change paths
+      run_on_changes paths
     end
 
     protected
